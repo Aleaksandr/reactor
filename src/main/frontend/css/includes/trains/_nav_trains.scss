@@ -1,0 +1,247 @@
+div .container_trains {
+  nav {
+    width: 99.97%;
+    height: 40px;
+    background-color: #fafafa;
+    border-bottom: 1px solid #e6e6e6;
+
+    ul {
+      overflow: hidden;
+      width: 100%;
+      padding-bottom: 5px;
+
+      li {
+        width: 200px;
+        height: 41px;
+        float: left;;
+        border-right: 1px dashed #e6e6e6;
+        border-bottom: none;
+        cursor: pointer;
+
+        div {
+          padding-top: 11px;
+          padding-left: 21px;
+          color: #949494;
+        }
+
+        &.active {
+          cursor: default;
+          position: relative;
+          background-color: #fff;
+          border-bottom: none;
+          box-shadow: inset 0 4px 0 #0f75d6;
+          z-index: 1;
+
+          &:after {
+            content: "";
+            position: absolute;
+            width: 205px;
+            top: 0;
+            height: 1px;
+            left: 0;
+            background-color: #fff;
+          }
+
+          &:before {
+            content: "";
+            position: absolute;
+            height: 38px;
+            width: 5px;
+            left: 200px;
+            top: 0;
+            background: #e1e1e1;
+            background: -webkit-linear-gradient(top,#e1e1e1,#f6f6f6);
+            background: linear-gradient(180deg,#e1e1e1 0,#f6f6f6);
+          }
+
+          div {
+            color: #333;
+            padding-left: 18px;
+          }
+        }
+
+        &:hover {
+          background-color: #eaf2ff;
+          position: relative;
+          z-index: 1;
+        }
+      }
+    }
+  }
+  .content {
+    &-box {
+      background-image: url(/res/css/images/train_background.jpg);
+      overflow: hidden;
+      height: 95%;
+      &__controls {
+
+        &__train_station_data {
+          float: left;
+          width: 40%;
+          position: relative;
+
+          label {
+            float: left;
+            position: relative;
+            margin-bottom: 9px;
+            clear: left;
+            font-size: 12px;
+            line-height: 24px;
+            color: #0053cf;
+          }
+          .input_text, .select_type {
+            border: 1px solid #0053cf;
+            border-radius: 4px;
+            height: 23px;
+            width: 340px;
+            margin-left: 5px;
+            padding-left: 5px;
+          }
+          .input_text_auto {
+            float: right;
+            width: 340px;
+            margin-left: 5px;
+            padding-left: 5px;
+
+          }
+          .search_train_station_icon {
+            cursor: pointer;
+            padding-left: 5px;
+          }
+          .get_train_station_by_name_icon{
+            float: left;
+            cursor: pointer;
+          }
+          .button {
+            margin-top: 15px;
+            float: left;
+            clear: left;
+          }
+        }
+        map {
+          width: 59%;
+          height: 600px;
+          float: left;
+          position: relative;
+          border: 1px solid #0053cf;
+          border-radius: 8px;
+
+          &:before {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            right: -5px;
+            bottom: -5px;
+            z-index: -100;
+            background: #bdbdbd;
+            background: -webkit-linear-gradient(top,#e1e1e1,#bdbdbd);
+            background: linear-gradient(180deg,#e1e1e1,#bdbdbd);
+            border-radius: 8px;
+          }
+          div {
+            border-radius: 8px;
+            div {
+              border-radius: 8px;
+            }
+          }
+          .gm-style {
+            border-radius: 8px;
+          }
+
+          .pin {
+            width: 30px;
+            height: 30px;
+            border-radius: 50% 50% 50% 0;
+            background: #00cae9;
+            position: absolute;
+            transform: rotate(-45deg);
+            left: 50%;
+            top: 50%;
+            margin: -48px 0 0 -20px;
+            &:after {
+              content: "";
+              width: 14px;
+              height: 14px;
+              margin: 8px 0 0 8px;
+              background: #e6e6e6;
+              position: absolute;
+              border-radius: 50%;
+            }
+          }
+          .bounce {
+            animation-name: bounce;
+            animation-fill-mode: both;
+            animation-duration: 1s;
+          }
+
+          .pulse {
+            background: #d6d4d4;
+            border-radius: 50%;
+            height: 14px;
+            width: 14px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -10px 0 0 -12px;
+            transform: rotateX(55deg);
+            z-index: -2;
+            &:after {
+              content: "";
+              border-radius: 50%;
+              height: 40px;
+              width: 40px;
+              position: absolute;
+              margin: -13px 0 0 -13px;
+              animation: pulsate 1s ease-out;
+              animation-iteration-count: infinite;
+              opacity: 0;
+              box-shadow: 0 0 1px 2px #00cae9;
+              animation-delay: 1.1s;
+            }
+          }
+
+          @keyframes pulsate {
+            0% {
+              transform: scale(0.1, 0.1);
+              opacity: 0;
+            }
+
+            50% {
+              opacity: 1;
+            }
+
+            100% {
+              transform: scale(1.2, 1.2);
+              opacity: 0;
+            }
+          }
+
+          @keyframes bounce {
+            0% {
+              opacity: 0;
+              transform: translateY(-2000px) rotate(-45deg);
+            }
+
+            60% {
+              opacity: 1;
+              transform: translateY(30px) rotate(-45deg);
+            }
+
+            80% {
+              transform: translateY(-10px) rotate(-45deg);
+            }
+
+            100% {
+              transform: translateY(0) rotate(-45deg);
+            }
+          }
+
+
+
+
+        }
+      }
+    }
+  }
+}

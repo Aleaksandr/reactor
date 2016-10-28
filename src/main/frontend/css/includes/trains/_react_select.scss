@@ -1,0 +1,416 @@
+$color_alabaster_approx: #f9f9f9;
+$white: #fff;
+$color_periwinkle_approx: #c0ceff;
+$color_danube_approx: #6f9acc;
+$color_royal_blue_approx: #3753ff;
+$color_science_blue_approx: #0053cf;
+$color_mine_shaft_approx: #333;
+$color_azure_radiance_approx: #007eff;
+$color_azure_radiance_10_approx: rgba(0, 126, 255, 0.1);
+$color_monza_approx: #d0021b;
+$color_mariner_approx: #2a6fcc;
+$color_perano_approx: #a6b4ff;
+$color_perano_6_approx: rgba(166, 180, 255, 0.06);
+$color_storm_dust_approx: #666;
+$color_zircon_approx: #f5faff;
+$color_solitude_approx: #ebf5ff;
+$color_tropical_blue_approx: #c2e0ff;
+$color_hawkes_blue_approx: #d8eafd;
+$color_blue_ribbon_approx: #0071e6;
+$color_mercury_approx: #e3e3e3;
+
+%extend_1 {
+  bottom: 0;
+  color: $color_science_blue_approx;
+  left: 0;
+  line-height: 23px;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: absolute;
+  right: 0;
+  top: 2px;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+%extend_2 {
+  color: $color_azure_radiance_approx;
+  outline: none;
+  text-decoration: underline;
+}
+
+
+.Select {
+  position: relative;
+  box-sizing: border-box;
+  div {
+    box-sizing: border-box;
+  }
+  input {
+    box-sizing: border-box;
+  }
+  span {
+    box-sizing: border-box;
+  }
+  &.is-disabled {
+    .Select-arrow-zone {
+      cursor: default;
+      pointer-events: none;
+      opacity: 0.35;
+    }
+    > .Select-control {
+      background-color: $color_alabaster_approx;
+      &:hover {
+        box-shadow: none;
+      }
+    }
+  }
+  .Select-aria-only {
+    display: inline-block;
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    overflow: hidden;
+  }
+}
+.Select-control {
+  background-color: $white;
+  border-color: $color_periwinkle_approx $color_danube_approx $color_royal_blue_approx;
+  border-radius: 4px;
+  border: 1px solid $color_science_blue_approx;
+  color: $color_mine_shaft_approx;
+  cursor: default;
+  display: table;
+  border-spacing: 0;
+  border-collapse: separate;
+  height: 23px;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  &:hover {
+    box-shadow: 0 1px 0 $color_mercury_approx;
+  }
+  .Select-input:focus {
+    outline: none;
+  }
+  &:not(.is-searchable) > .Select-input {
+    outline: none;
+  }
+}
+.is-searchable {
+  &.is-open > .Select-control {
+    cursor: text;
+  }
+  &.is-focused:not(.is-open) > .Select-control {
+    cursor: text;
+  }
+}
+.is-open {
+  .Select-arrow {
+    border-top-color: $color_science_blue_approx;
+  }
+  > .Select-control {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    background: $white;
+    border-color: $color_royal_blue_approx $color_danube_approx $color_periwinkle_approx;
+    > .Select-arrow {
+      border-color: transparent transparent $color_science_blue_approx;
+      border-width: 0 5px 5px;
+    }
+  }
+}
+.is-focused {
+  &:not(.is-open) > .Select-control {
+    border-color: $color_azure_radiance_approx;
+    box-shadow: inset 0 1px 1px $color_mercury_approx, 0 0 0 3px $color_azure_radiance_10_approx;
+  }
+  .Select-input > input {
+    cursor: text;
+  }
+}
+.Select-placeholder {
+  @extend %extend_1;
+  top: 0;
+}
+.has-value {
+  &.is-pseudo-focused {
+    .Select-input {
+      opacity: 0;
+    }
+    &.Select--single > .Select-control .Select-value {
+      .Select-value-label {
+        color: $color_mine_shaft_approx;
+      }
+      a.Select-value-label {
+        cursor: pointer;
+        text-decoration: none;
+        &:hover {
+          @extend %extend_2;
+        }
+        &:focus {
+          @extend %extend_2;
+        }
+      }
+    }
+  }
+  &.Select--single > .Select-control .Select-value {
+    .Select-value-label {
+      color: $color_mine_shaft_approx;
+    }
+    a.Select-value-label {
+      cursor: pointer;
+      text-decoration: none;
+      &:hover {
+        @extend %extend_2;
+      }
+      &:focus {
+        @extend %extend_2;
+      }
+    }
+  }
+}
+.Select-input {
+  height: 23px;
+  padding-left: 10px;
+  padding-right: 10px;
+  vertical-align: middle;
+  > input {
+    width: 100%;
+    background: none transparent;
+    border: 0 none;
+    box-shadow: none;
+    cursor: default;
+    display: inline-block;
+    font-family: inherit;
+    font-size: inherit;
+    margin: 0;
+    outline: none;
+    line-height: 14px;
+    padding: 3px 0 12px;
+  }
+}
+.Select-loading-zone {
+  cursor: pointer;
+  display: table-cell;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  width: 16px;
+}
+.Select-loading {
+  animation: Select-animation-spin 400ms infinite linear;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 2px solid $color_science_blue_approx;
+  border-right-color: $color_mine_shaft_approx;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+}
+.Select-clear-zone {
+  animation: Select-animation-fadeIn 200ms;
+  color: $color_science_blue_approx;
+  cursor: pointer;
+  display: table-cell;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  width: 17px;
+  &:hover {
+    color: $color_monza_approx;
+  }
+}
+.Select-clear {
+  display: inline-block;
+  font-size: 18px;
+  line-height: 1;
+}
+.Select--multi {
+  .Select-clear-zone {
+    width: 17px;
+  }
+  .Select-multi-value-wrapper {
+    display: inline-block;
+  }
+  .Select-input {
+    vertical-align: middle;
+    margin-left: 10px;
+    padding: 0;
+  }
+  .Select-value {
+    background-color: $color_solitude_approx;
+    border-radius: 2px;
+    border: 1px solid $color_tropical_blue_approx;
+    color: $color_azure_radiance_approx;
+    display: inline-block;
+    font-size: 0.9em;
+    line-height: 1.4;
+    margin-left: 5px;
+    margin-top: 5px;
+    vertical-align: top;
+  }
+  .Select-value-icon {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+    border-right: 1px solid $color_tropical_blue_approx;
+    padding: 1px 5px 3px;
+    &:hover {
+      background-color: $color_hawkes_blue_approx;
+      color: $color_blue_ribbon_approx;
+    }
+    &:focus {
+      background-color: $color_hawkes_blue_approx;
+      color: $color_blue_ribbon_approx;
+    }
+    &:active {
+      background-color: $color_tropical_blue_approx;
+    }
+  }
+  .Select-value-label {
+    display: inline-block;
+    vertical-align: middle;
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+    cursor: default;
+    padding: 2px 5px;
+  }
+  &.is-disabled {
+    .Select-value {
+      background-color: $color_alabaster_approx;
+      border: 1px solid $color_perano_approx;
+      color: $color_mine_shaft_approx;
+    }
+    .Select-value-icon {
+      cursor: not-allowed;
+      border-right: 1px solid $color_mercury_approx;
+      &:hover {
+        background-color: $color_alabaster_approx;
+      }
+      &:focus {
+        background-color: $color_alabaster_approx;
+      }
+      &:active {
+        background-color: $color_alabaster_approx;
+      }
+    }
+  }
+  &.has-value .Select-input {
+    margin-left: 5px;
+  }
+  a.Select-value-label {
+    color: $color_azure_radiance_approx;
+    cursor: pointer;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+.Select-arrow-zone {
+  cursor: pointer;
+  display: table-cell;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  width: 25px;
+  padding-right: 5px;
+  &:hover > .Select-arrow {
+    border-top-color: $color_science_blue_approx;
+  }
+}
+.Select-arrow {
+  border-color: $color_science_blue_approx transparent transparent;
+  border-style: solid;
+  border-width: 5px 5px 2.5px;
+  display: inline-block;
+  height: 0;
+  width: 0;
+}
+@-webkit-keyframes Select-animation-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes Select-animation-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.Select-menu-outer {
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  background-color: $white;
+  border: 1px solid $color_mariner_approx;
+  border-top-color: $color_perano_approx;
+  box-shadow: 0 1px 0 $color_perano_6_approx;
+  box-sizing: border-box;
+  margin-top: -1px;
+  max-height: 200px;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  z-index: 1;
+}
+.Select-menu {
+  max-height: 198px;
+  overflow-y: auto;
+}
+.Select-option {
+  box-sizing: border-box;
+  background-color: $white;
+  color: $color_storm_dust_approx;
+  cursor: pointer;
+  display: block;
+  padding: 8px 10px;
+  &:last-child {
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  &.is-selected {
+    background-color: $color_zircon_approx;
+    color: $color_mine_shaft_approx;
+  }
+  &.is-focused {
+    background-color: $color_solitude_approx;
+    color: $color_mine_shaft_approx;
+  }
+  &.is-disabled {
+    color: $color_perano_approx;
+    cursor: default;
+  }
+}
+.Select-noresults {
+  box-sizing: border-box;
+  color: $color_mariner_approx;
+  cursor: default;
+  display: block;
+  padding: 8px 10px;
+}
+@keyframes Select-animation-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+@-webkit-keyframes Select-animation-spin {
+  to {
+  }
+}
+.Select--single > .Select-control .Select-value {
+  @extend %extend_1;
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope">
+    <s:Body xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <HotelSearchRequest xmlns="http://tempuri.org/">
+            <credentials xsi:type="StandardAuthInfo">
+                <Login>bplushotel</Login>
+                <PassWord>mjjYDd</PassWord>
+            </credentials>
+            <param xsi:type="StandardHotelSearchParams">
+                <From>2015-12-22T15:46:00.7852394+03:00</From>
+                <To>2015-12-23T15:46:00.7852394+03:00</To>
+                <NumberOfGuests>TwoPersons</NumberOfGuests>
+                <HotelStars>Any</HotelStars>
+                <Location xsi:type="CoordsBasedParams">
+                    <Latitude>59.93</Latitude>
+                    <Longitude>30.32</Longitude>
+                    <ISO />
+                </Location>
+                <Raduis xsi:nil="true" />
+                <SearchGuid xsi:nil="true" />
+                <HotelCodes />
+                <HotelId xsi:nil="true" />
+            </param>
+        </HotelSearchRequest>
+    </s:Body>
+</s:Envelope>
