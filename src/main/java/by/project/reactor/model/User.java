@@ -1,7 +1,6 @@
 package by.project.reactor.model;
 
 import by.project.reactor.model.types.UserType;
-import com.sun.istack.internal.NotNull;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,7 +13,6 @@ public class User implements Serializable {
     @Column(name = "ID")
     private Integer id;
     @Column(name = "LOGIN", length = 95)
-    @NotNull
     private String login;
     @Column(name = "PASSWORD", length = 95)
     private String password;
