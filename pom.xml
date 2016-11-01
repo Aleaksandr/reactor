@@ -26,6 +26,12 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.4.1208</version>
+        </dependency>
+
         <!--hibernate-->
         <dependency>
             <groupId>org.hibernate</groupId>
