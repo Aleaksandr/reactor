@@ -1,1 +1,1 @@
-web: bundle exec rails server -p $PORT
+web: java -war target/reactor.war
